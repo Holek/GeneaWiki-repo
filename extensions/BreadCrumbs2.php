@@ -192,5 +192,4 @@ function translate_variable( $tag )
  
     }
 }
- 
-?>
+
