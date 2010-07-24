@@ -61,7 +61,7 @@ function addCustomNavBlocks( $skin, $tpl ) {
 				}
 			} else {
 				# get article and content:
-				$content = $tpl->translator->translate( "$definition" );
+				$content = $tpl->translator->translate( $definition );
 	
 				# parse the mediawiki-syntax into html:
 				$content = $wgParser->preprocess( $content, $title, $parserOptions );
