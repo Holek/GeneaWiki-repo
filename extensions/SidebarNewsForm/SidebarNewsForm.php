@@ -4,8 +4,8 @@ if ( !defined('MEDIAWIKI')) {
  die ('Sidebar Form extension');
 }
 
-$wgExtensionCredits[''][] = array(
-	'path' => '__PATH__',
+$wgExtensionCredits['other'][] = array(
+	'path' => __PATH__,
 	'name' => 'Sidebar News Form',
 	'author' => 'Mike Poltyn'
 );
