@@ -1,4 +1,12 @@
 #mc_embed_signup fieldset {*position: relative;}
 #mc_embed_signup legend {*position: absolute; *top: -1em; *left: .2em;}
 .mc-field-group {*overflow:visible;}
+.indicate-required {text-align: right;font-style: italic;}
+.mc-field-group {clear:both;overflow:hidden;}
+#mc_embed_signup label {display:block;}
+#mc_embed_signup input[type="text"] {padding: 0.2em 0.3em; width:90%; border:1px solid #333;
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.5, rgb(255,255,255)), color-stop(1, rgb(219,241,255)));
+background: -moz-linear-gradient(center top, rgb(255,255,255) 50%, rgb(219,241,255) 100%);}
+#mce-error-response{font-weight: bold;margin: 1em 0px;padding: 1em 0.5em 0.5em 0px;background: #FBE3E4;color: #D12F19;display:none;z-index:1;}
+#mce-success-response{font-weight: bold;margin: 1em 0px;padding: 1em 0.5em 0.5em 0px;background: #E3FBE4;color: #529214;display:none;z-index:1;}
 

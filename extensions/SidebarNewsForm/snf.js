@@ -5,6 +5,15 @@ try{
     err_style = 'margin: 1em 0 0 0; padding: 1em 0.5em 0.5em 0.5em; background: ERROR_BGCOLOR none repeat scroll 0% 0%; font-weight: bold; float: left; z-index: 1; width: 80%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: ERROR_COLOR;';
 }
 $j(document).ready( function() {
+  if (wgVectorEnabledModules.collapsiblenav) {
+    var newsformcookie = $j.cookie( 'vector-nav-p-news-form-sidebar' );
+    if (newsformcookie == null) {
+      $j('#p-news-form-sidebar').addClass( 'expanded' )
+                                .find( 'div.body' )
+                                .show();
+      $j.cookie( 'vector-nav-p-news-form-sidebar', true, { 'expires': 30, 'path':'/' } );
+    }
+  }
   var options = { errorClass: 'mce_inline_error', errorElement: 'div', errorStyle: err_style, onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
   var mce_validator = $j("#mc-embedded-subscribe-form").validate(options);
   options = { url: 'http://geneabase.us1.list-manage.com/subscribe/post-json?u=30f13c78ab863e816fd5cf7f8&id=564ae5a12a&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
