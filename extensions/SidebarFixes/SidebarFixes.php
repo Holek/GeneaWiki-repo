@@ -31,7 +31,8 @@ if ( isset( $wgCollectionVersion ) ) {
 	$wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'fnAddCollectionSidebarBlock';
 }
 
-function fnAddCollectionSidebarBlock( &$out, &$skin ) {
-	$tpl->set( 'sidebar', array_merge($tpl->data['sidebar'],array('coll-print_export'=> CollectionHooks::getPortlet())));
+function fnAddCollectionSidebarBlock( &$skin, &$tpl ) {
+	$tpl->set( 'sidebar', array_merge($tpl->data['sidebar'],array('coll-print_export' => CollectionHooks::getPortlet())));
+	return true;
 }
 
