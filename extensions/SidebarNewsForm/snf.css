@@ -1,10 +1,13 @@
+div.indicate-required {display: none;}
+#mc-embedded-subscribe-form {font-size: 0.60em; width: 127px; margin-left: -23px; text-align: center; padding: 8px;}
+#mc-embedded-subscribe {margin-top: 4px;}
 #mc_embed_signup fieldset {*position: relative;}
 #mc_embed_signup legend {*position: absolute; *top: -1em; *left: .2em;}
 .mc-field-group {*overflow:visible;}
 .indicate-required {text-align: right;font-style: italic;}
 .mc-field-group {clear:both;overflow:hidden;}
 #mc_embed_signup label {display:block; margin-top: 2px;}
-#mc_embed_signup input[type="text"] {width:95%; font-size: 95%; height: 12px; margin-bottom: 5px;}
+#mc_embed_signup input[type="text"] {font-size: 8pt; width:120px; height: 12px; margin-bottom: 5px;}
 #mce-error-response{font-weight: bold;margin: 1em 0px;padding: 1em 0.5em 0.5em 0px;background: #FBE3E4;color: #D12F19;display:none;z-index:1;}
 #mce-success-response{font-weight: bold;margin: 1em 0px;padding: 1em 0.5em 0.5em 0px;background: #E3FBE4;color: #529214;display:none;z-index:1;}
 

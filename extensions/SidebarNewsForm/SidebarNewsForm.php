@@ -25,7 +25,7 @@ function fnAddSidebarNewsFiles( &$out, &$skin ) {
 
 function fnAddSidebarNewsFormToSidebar(&$skin, &$tpl) {
 	$html = '<div id="mc_embed_signup">
-<form action="http://geneabase.us1.list-manage.com/subscribe/post?u=30f13c78ab863e816fd5cf7f8&amp;id=564ae5a12a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" style="font-size: 10px;">
+<form action="http://geneabase.us1.list-manage.com/subscribe/post?u=30f13c78ab863e816fd5cf7f8&amp;id=564ae5a12a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 <div class="indicate-required">* indicates required</div>
 <div class="mc-field-group">
 <label for="mce-EMAIL">Email Address <strong class="note-required">*</strong>
