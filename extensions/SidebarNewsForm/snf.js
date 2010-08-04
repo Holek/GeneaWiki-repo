@@ -1,9 +1,4 @@
-var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';var err_style = '';
-try{
-    err_style = mc_custom_error_style;
-} catch(e){
-    err_style = 'margin: 1em 0 0 0; padding: 1em 0.5em 0.5em 0.5em; background: ERROR_BGCOLOR none repeat scroll 0% 0%; font-weight: bold; float: left; z-index: 1; width: 80%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: ERROR_COLOR;';
-}
+var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
 $j(document).ready( function() {
   if (wgVectorEnabledModules.collapsiblenav) {
     var newsformcookie = $j.cookie( 'vector-nav-p-news-form-sidebar' );
@@ -14,7 +9,7 @@ $j(document).ready( function() {
       $j.cookie( 'vector-nav-p-news-form-sidebar', true, { 'expires': 30, 'path':'/' } );
     }
   }
-  var options = { errorClass: 'mce_inline_error', errorElement: 'div', errorStyle: err_style, onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+  var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
   var mce_validator = $j("#mc-embedded-subscribe-form").validate(options);
   options = { url: 'http://geneabase.us1.list-manage.com/subscribe/post-json?u=30f13c78ab863e816fd5cf7f8&id=564ae5a12a&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
                 beforeSubmit: function(){
@@ -83,7 +78,7 @@ function mce_success_cb(resp){
                 $j('#mce-'+resp.result+'-response').html(msg);            
             } else {
                 err_id = 'mce_tmp_error_msg';
-                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+                html = '<div id="'+err_id+'"> '+msg+'</div>';
                 
                 var input_id = '#mc_embed_signup';
                 var f = $j(input_id);
