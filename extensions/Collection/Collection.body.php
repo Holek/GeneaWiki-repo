@@ -994,6 +994,7 @@ EOS
 		global $wgOut;
 		global $wgContLang;
 		global $wgServer;
+		global $wgServerBehindNAT;
 		global $wgScriptPath;
 		global $wgScriptExtension;
 
@@ -1003,7 +1004,7 @@ EOS
 
 		$response = self::mwServeCommand( 'render', array(
 			'metabook' => $this->buildJSONCollection( $collection ),
-			'base_url' => $wgServer . $wgScriptPath,
+			'base_url' => ( ( $wgServerBehindNAT ) ? $wgServerBehindNAT : $wgServer ) . $wgScriptPath,
 			'script_extension' => $wgScriptExtension,
 			'template_blacklist' => wfMsgForContent( 'coll-template_blacklist_title' ),
 			'template_exclusion_category' => wfMsgForContent( 'coll-exclusion_category_title' ),
@@ -1033,6 +1034,7 @@ EOS
 		global $wgContLang;
 		global $wgRequest;
 		global $wgServer;
+		global $wgServerBehindNAT;
 		global $wgScriptPath;
 		global $wgScriptExtension;
 
@@ -1041,7 +1043,7 @@ EOS
 
 		$response = self::mwServeCommand( 'render', array(
 			'collection_id' => $collectionID,
-			'base_url' => $wgServer . $wgScriptPath,
+			'base_url' => ( ( $wgServerBehindNAT ) ? $wgServerBehindNAT : $wgServer ) . $wgScriptPath,
 			'script_extension' => $wgScriptExtension,
 			'template_blacklist' => wfMsgForContent( 'coll-template_blacklist_title' ),
 			'template_exclusion_category' => wfMsgForContent( 'coll-exclusion_category_title' ),
@@ -1142,7 +1144,9 @@ EOS
 		global $wgRequest;
 		global $wgCollectionContentTypeToFilename;
 
-		$tempfile = tmpfile();
+#		$tempfile = tmpfile();
+		$tmpfname = tempnam("/tmp", "mwlib-pdf");
+		$tempfile = fopen($tmpfname, "w");
 		$r = self::mwServeCommand( 'render_status', array(
 			'collection_id' => $wgRequest->getVal( 'collection_id' ),
 			'writer' => $wgRequest->getVal( 'writer' ),
@@ -1179,8 +1183,11 @@ EOS
 				header( 'Content-Disposition: ' . 'inline; filename=' . $wgCollectionContentTypeToFilename[$ct] );
 			}
 		}
-		fseek( $tempfile, 0 );
-		fpassthru( $tempfile );
+		#fseek( $tempfile, 0 );
+		#fpassthru( $tempfile );
+		if (is_resource($tempfile))
+			fclose($tempfile);
+		readfile( $tmpfname );
 		$wgOut->disable();
 	}
 
@@ -1372,6 +1379,9 @@ EOS
 			if ( !$toFile ) {
 				$text = $result;
 			}
+                       else {
+                               fclose( $toFile );
+                       }
 			$errorMessage = '';
 		}
 		curl_close( $c );
