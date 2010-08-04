@@ -11,7 +11,7 @@ $wgExtensionCredits['other'][] = array(
 );
 
 $wgHooks['BeforePageDisplay'][] = 'fnAddSidebarNewsFiles';
-$wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'fnAddSidebarNewsFormToSidebar';
+$wgHooks['SkinBuildSidebar'][] = 'fnAddSidebarNewsFormToSidebar';
 
 function fnAddSidebarNewsFiles( &$out, &$skin ) {
 	global $wgScriptPath;
@@ -23,7 +23,7 @@ function fnAddSidebarNewsFiles( &$out, &$skin ) {
 	return true;
 }
 
-function fnAddSidebarNewsFormToSidebar(&$skin, &$tpl) {
+function fnAddSidebarNewsFormToSidebar(&$skin, &$bar) {
 	$html = '<div id="mc_embed_signup">
 <form action="http://geneabase.us1.list-manage.com/subscribe/post?u=30f13c78ab863e816fd5cf7f8&amp;id=564ae5a12a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 <div class="indicate-required">* indicates required</div>
@@ -48,9 +48,7 @@ function fnAddSidebarNewsFormToSidebar(&$skin, &$tpl) {
  <a href="#" id="mc_embed_close" class="mc_embed_close" style="display: none;">Close</a>
 </form>
 </div>';
-	$sidebar = array('news-form-sidebar' => $html);
-	# set sidebar to new thing:
-	$tpl->set( 'sidebar', array_merge($tpl->data['sidebar'],$sidebar) );
+	$bar['news-form-sidebar'] = $html;
 	return true;
 }
 
