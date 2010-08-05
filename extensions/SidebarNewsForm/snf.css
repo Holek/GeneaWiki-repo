@@ -9,6 +9,6 @@ div.indicate-required {display: none;}
 #mc_embed_signup label {display:block; margin-top: 2px;}
 #mc_embed_signup input[type="text"] {font-size: 8pt; width:120px; height: 12px; margin-bottom: 5px;}
 #mce-error-response{font-weight: bold;margin: 1em 0;padding: 1em 0.5em 0.5em 0;background: #FBE3E4;color: #D12F19;display:none;z-index:1;}
-#mce-success-response{font-weight: bold;margin: 1em 0;padding: 1em 0.5em 0.5em 0;background: #E3FBE4;color: #529214;display:none;z-index:1;}
-div.mce_inline_error{font-weight: bold;margin: 0 0 1em;padding: 1em 0.5em;background: #FBE3E4;color: #D12F19;display:none;z-index:1;}
+#mce-success-response{font-weight: bold;margin: 0 0 1em; padding: 0.5em; background: #E3FBE4;color: #529214;display:none;z-index:1; text-align: left; border: medium solid;}
+div.mce_inline_error{font-weight: bold;margin: 0 0 1em;padding: 1em;background: #FBE3E4;color: #D12F19;text-align: center; display:none;z-index:1;}
 

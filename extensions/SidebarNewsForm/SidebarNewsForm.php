@@ -30,8 +30,9 @@ function fnAddSidebarNewsFormToSidebar(&$skin, &$bar) {
 <div class="mc-field-group">
 <label for="mce-EMAIL">Email Address <strong class="note-required">*</strong>
 </label>
-<input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+<input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL" onfocus="document.getElementById(\'toggle-mailinglist\').style.display = \'block\';">
 </div>
+<div id="toggle-mailinglist" style="display: none;">
 <div class="mc-field-group">
 <label for="mce-FNAME">First Name </label>
 <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
@@ -39,6 +40,15 @@ function fnAddSidebarNewsFormToSidebar(&$skin, &$bar) {
 <div class="mc-field-group">
 <label for="mce-LNAME">Last Name </label>
 <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group">
+    <label class="input-group-label" style="display: block;margin-top: .4em 0; margin-bottom: 0;">Keep me updated on: </label>
+    <div class="input-group" style="padding: .7em .7em .7em 0;font-size: .9em;margin: 0 0 1em 0;">
+      <ul style="margin: 0;padding: 0;"><li style="list-style: none;overflow: hidden;padding: .2em 0;clear: left;display: block;margin: 0; font-size: 1.2em;"><input type="radio" value="1" name="group" id="mce-group-1-0" style="margin-right: 2%;padding: .2em .3em;width: auto;float: left;z-index: 999;"><label for="mce-group-1-0" style="display: block;margin: .4em 0 0 0;line-height: 1em;width: auto;float: left;text-align: left;">product releases only</label></li>
+<li style="list-style: none;overflow: hidden;padding: .2em 0;clear: left;display: block;margin: 0; font-size: 1.2em;"><input type="radio" value="2" name="group" id="mce-group-1-1" style="margin-right: 2%;padding: .2em .3em;width: auto;float: left;z-index: 999;"><label for="mce-group-1-1" style="display: block;margin: .4em 0 0 0;width: auto;float: left;text-align: left;">all project news</label></li>
+     </ul>
+    </div>
+</div>
 </div>
   <div id="mce-responses">
    <div class="response" id="mce-error-response"></div>
