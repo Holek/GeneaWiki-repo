@@ -1,0 +1,74 @@
+#! /bin/sh
+
+# mw-serve        Startup script for mw-serve
+#
+# chkconfig: 345 85 15
+# description: used to serve pdf files for MediaWiki
+# processname: mw-serve
+# pidfile: /var/run/mw-serve.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+start(){
+
+echo -n "Starting mw-serve... "
+# defaults to FastCGI, port 8899 on localhost, no daemonization
+#su -c "PYTHONPATH=/opt/mwlib/lib/python2.5/site-packages \
+#PATH=/usr/bin:/bin:/opt/mwlib/bin \
+#PYTHON_EGG_CACHE=/opt/mwlib/var/cache/python-eggs \
+#/opt/mwlib/bin/mw-serve \
+daemon "/usr/local/bin/mw-serve \
+  -p 8899 \
+  -P http \
+  -d \
+  --cache-dir='/var/cache/mw-serve' \
+  --mwrender-logfile='/var/log/mw-serve/mw-render.log' \
+  --mwzip-logfile='/var/log/mw-serve/mw-zip.log' \
+  --mwpost-logfile='/var/log/mw-serve/mw-post.log' \
+  --logfile='/var/log/mw-serve/mw-serve.log' \
+  --pid-file='/var/run/mw-serve.pid' \
+  --report-from-mail=wikimaster@geneabase.com \
+  --report-recipient=wikimaster@geneabase.com"
+   RETVAL=$?
+  echo
+  [ $RETVAL = 0 ] && touch /var/lock/subsys/mw-serve
+  return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  status)
+        status $program
+        RETVAL=$?
+        ;;
+  stop)
+   if [ -e /var/run/mw-serve.pid ]; then
+   echo -n "Stopping mw-serve..."
+   kill -TERM `cat /var/run/mw-serve.pid`
+         RETVAL=$?
+         if [ $RETVAL = 0 ] ; then
+           rm /var/lock/subsys/mw-serve
+           echo_success
+           echo
+         else
+           echo_failure
+           echo
+          fi
+       else
+         echo "mw-serve NOT active!"
+
+  fi
+   ;;
+  restart)
+   "$0" stop && "$0" start
+  ;;
+  *)
+  echo "Usage: /etc/init.d/mwserve {start|stop|restart}"
+  exit 1
+esac
+
+exit 0
