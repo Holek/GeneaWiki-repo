@@ -10,7 +10,7 @@ echo "Starting mw-serve... "
 #PYTHON_EGG_CACHE=/opt/mwlib/var/cache/python-eggs \
 #/opt/mwlib/bin/mw-serve \
 su -c "/usr/bin/mw-serve \
-  -p 8080 \
+  -p 8899 \
   -P http \
   -d \
   --cache-dir='/var/cache/pdfserver/' \
