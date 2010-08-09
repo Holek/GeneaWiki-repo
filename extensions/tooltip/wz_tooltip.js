@@ -43,12 +43,12 @@ var TagsToTip = true  // false or true - if true, HTML elements to be converted 
 // configure tooltips individually. Individual commands override global
 // configuration. Order of commands is arbitrary.
 // Example: onmouseover="Tip('Tooltip text', LEFT, true, BGCOLOR, '#FF9900', FADEIN, 400)"
-config. Above   = false  // false or true - tooltip above mousepointer
-config. BgColor   = '#E2E7FF' // Background colour (HTML colour value, in quotes)
+config. Above   = true  // false or true - tooltip above mousepointer
+config. BgColor   = 'white' // Background colour (HTML colour value, in quotes)
 config. BgImg   = ''  // Path to background image, none if empty string ''
-config. BorderColor  = '#003099'
+config. BorderColor  = '#951B81'
 config. BorderStyle  = 'solid' // Any permitted CSS value, but I recommend 'solid', 'dotted' or 'dashed'
-config. BorderWidth  = 1
+config. BorderWidth  = 2
 config. CenterMouse  = false  // false or true - center the tip horizontally below (or above) the mousepointer
 config. ClickClose  = false  // false or true - close tooltip if the user clicks somewhere
 config. ClickSticky  = false  // false or true - make tooltip sticky if user left-clicks on the hovered element while the tooltip is active
@@ -75,7 +75,7 @@ config. Left   = false  // false or true - tooltip on the left of the mouse
 config. OffsetX   = 14  // Horizontal offset of left-top corner from mousepointer
 config. OffsetY   = 8   // Vertical offset
 config. Opacity   = 100  // Integer between 0 and 100 - opacity of tooltip in percent
-config. Padding   = 3   // Spacing between border and content
+config. Padding   = 6   // Spacing between border and content
 config. Shadow   = false  // false or true
 config. ShadowColor  = '#C0C0C0'
 config. ShadowWidth  = 5
