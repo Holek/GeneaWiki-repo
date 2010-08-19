@@ -153,18 +153,15 @@ $j(document).ready( function() {
 	}
 
 	/* General Portal Modification */
-
-	// Always show the first portal
-	$j( '#mw-panel > div.portal:first' ).addClass( 'first persistent' );
+	var keepOpen = $j( '.keepOpen' );
 	// Apply a class to the entire panel to activate styles
 	$j( '#mw-panel' ).addClass( 'collapsible-nav' );
 	// Use cookie data to restore preferences of what to show and hide
-	$j( '#mw-panel > div.portal:not(.persistent)' )
+	$j( '#mw-panel > div.portal' )
 		.each( function( i ) {
 			var id = $j(this).attr( 'id' );
-			var state = $j.cookie( 'vector-nav-' + id );
 			// In the case that we are not showing the new version, let's show the languages by default
-			if ( state == 'true' || ( state == null && i < 1 ) || ( state == null && version == 1 && id == 'p-lang' ) ) {
+			if ( keepOpen.length && keepOpen.attr('id') == 'keepOpen-' + id.substring(2) ) {
 				$j(this)
 					.addClass( 'expanded' )
 					.find( 'div.body' )
@@ -172,18 +169,9 @@ $j(document).ready( function() {
 			} else {
 				$j(this).addClass( 'collapsed' );
 			}
-			// Re-save cookie
-			if ( state != null ) {
-				$j.cookie( 'vector-nav-' + $j(this).attr( 'id' ), state, { 'expires': 30, 'path': '/' } );
-			}
 		} );
 	// Use the same function for all navigation headings - don't repeat yourself
 	function toggle( $element ) {
-		$j.cookie(
-			'vector-nav-' + $element.parent().attr( 'id' ),
-			$element.parent().is( '.collapsed' ),
-			{ 'expires': 30, 'path': '/' }
-		);
 		$element
 			.parent()
 			.toggleClass( 'expanded' )
@@ -194,7 +182,7 @@ $j(document).ready( function() {
 
 	/* Tab Indexing */
 
-	var $headings = $j( '#mw-panel > div.portal:not(.persistent) > h5' );
+	var $headings = $j( '#mw-panel > div.portal > h5' );
 	// Get the highest tab index
 	var tabIndex = mw.usability.getMaxTabIndex() + 1;
 	// Fix the search not having a tabindex
