@@ -1,14 +1,5 @@
 var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
 $j(document).ready( function() {
-  if (wgVectorEnabledModules.collapsiblenav) {
-    var newsformcookie = $j.cookie( 'vector-nav-p-news-form-sidebar' );
-    if (newsformcookie == null) {
-      $j('#p-news-form-sidebar').addClass( 'expanded' )
-                                .find( 'div.body' )
-                                .show();
-      $j.cookie( 'vector-nav-p-news-form-sidebar', true, { 'expires': 30, 'path':'/' } );
-    }
-  }
   var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
   var mce_validator = $j("#mc-embedded-subscribe-form").validate(options);
   options = { url: 'http://geneabase.us1.list-manage.com/subscribe/post-json?u=30f13c78ab863e816fd5cf7f8&id=564ae5a12a&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
