@@ -18,7 +18,7 @@ echo -n "Starting mw-serve... "
 #PATH=/usr/bin:/bin:/opt/mwlib/bin \
 #PYTHON_EGG_CACHE=/opt/mwlib/var/cache/python-eggs \
 #/opt/mwlib/bin/mw-serve \
-daemon "/usr/local/bin/mw-serve \
+daemon "/usr/bin/mw-serve \
   -p 8899 \
   -P http \
   -d \
