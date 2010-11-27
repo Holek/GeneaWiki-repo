@@ -65,11 +65,9 @@ color:HighlightText;
 font-weight:bold;
 }
 #mw-panel.collapsible-nav div.portal{
-background-image:url(../images/vector/collapsibleNav/portal-break.png?1);
 background-position:left top;
 background-repeat:no-repeat;
 padding:0.25em 0 !important;
-margin:-11px 9px 10px 11px;
 }
 body.rtl #mw-panel.collapsible-nav div.portal{
 background-position:right top;
